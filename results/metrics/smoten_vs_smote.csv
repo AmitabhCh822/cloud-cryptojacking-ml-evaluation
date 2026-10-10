@@ -1,0 +1,7 @@
+model,accuracy_smote,accuracy_smoten,f1_attack_smote,f1_attack_smoten,delta_accuracy_points,delta_f1_attack
+Random Forest,0.9626,0.9626,0.59121,0.59121,0.0,0.0
+XGBoost,0.96257,0.96257,0.59102,0.59102,0.0,0.0
+LightGBM,0.96257,0.96256,0.59102,0.59096,-0.00093,-6e-05
+Gradient Boosting,0.96232,0.96214,0.58941,0.58821,-0.01862,-0.00119
+Decision Tree,0.9626,0.9626,0.59121,0.59121,0.0,0.0
+KNN,0.99213,0.99213,0.83747,0.83747,0.0,0.0

@@ -101,18 +101,18 @@ If you would rather skip Kaggle, place `DS2OS.csv` under `data/raw/ds2os/` and `
 
 | Dataset | Model | Accuracy | Weighted F1 | Weighted precision | Training time |
 |---|---|---|---|---|---|
-| DS2OS | Random Forest | 96.26% | 0.9695 | 0.9830 | 21.92 s |
-| DS2OS | XGBoost | 96.26% | 0.9695 | 0.9830 | 3.16 s |
-| DS2OS | LightGBM | 96.26% | 0.9695 | 0.9830 | 3.78 s |
-| DS2OS | Gradient Boosting | 96.23% | 0.9693 | 0.9829 | 45.31 s |
-| DS2OS | Decision Tree | 96.26% | 0.9695 | 0.9830 | 0.55 s |
-| DS2OS | KNN | 99.21% | 0.9915 | 0.9921 | 1.19 s |
-| NSL-KDD | Random Forest | 77.17% | 0.7686 | 0.8345 | 8.61 s |
-| NSL-KDD | XGBoost | 80.82% | 0.8073 | 0.8527 | 3.67 s |
-| NSL-KDD | LightGBM | 80.35% | 0.8023 | 0.8503 | 3.44 s |
-| NSL-KDD | Gradient Boosting | 78.25% | 0.7802 | 0.8391 | 47.81 s |
-| NSL-KDD | Decision Tree | 77.66% | 0.7740 | 0.8354 | 1.01 s |
-| NSL-KDD | KNN | 76.76% | 0.7639 | 0.8347 | 0.12 s |
+| DS2OS | Random Forest | 96.26% | 0.9695 | 0.9830 | 23.48 s |
+| DS2OS | XGBoost | 96.26% | 0.9695 | 0.9830 | 3.60 s |
+| DS2OS | LightGBM | 96.26% | 0.9695 | 0.9830 | 5.60 s |
+| DS2OS | Gradient Boosting | 96.23% | 0.9693 | 0.9829 | 48.36 s |
+| DS2OS | Decision Tree | 96.26% | 0.9695 | 0.9830 | 0.37 s |
+| DS2OS | KNN | 99.21% | 0.9915 | 0.9921 | 1.18 s |
+| NSL-KDD | Random Forest | 77.17% | 0.7686 | 0.8345 | 9.29 s |
+| NSL-KDD | XGBoost | 80.47% | 0.8037 | 0.8511 | 4.01 s |
+| NSL-KDD | LightGBM | 80.35% | 0.8023 | 0.8503 | 2.03 s |
+| NSL-KDD | Gradient Boosting | 78.25% | 0.7802 | 0.8391 | 47.76 s |
+| NSL-KDD | Decision Tree | 77.66% | 0.7740 | 0.8354 | 0.98 s |
+| NSL-KDD | KNN | 76.76% | 0.7639 | 0.8347 | 0.04 s |
 
 ### Table 3: attack-class metrics
 
@@ -122,7 +122,7 @@ If you would rather skip Kaggle, place `DS2OS.csv` under `data/raw/ds2os/` and `
 | DS2OS | Gradient Boosting | 0.424 | 0.966 | 0.589 | 0.038 | 0.627 |
 | DS2OS | KNN | 0.992 | 0.724 | 0.837 | 0.000 | 0.844 |
 | NSL-KDD | Random Forest | 0.967 | 0.620 | 0.756 | 0.028 | 0.609 |
-| NSL-KDD | XGBoost | 0.968 | 0.686 | 0.803 | 0.030 | 0.662 |
+| NSL-KDD | XGBoost | 0.969 | 0.679 | 0.798 | 0.029 | 0.657 |
 | NSL-KDD | LightGBM | 0.968 | 0.677 | 0.797 | 0.029 | 0.655 |
 | NSL-KDD | Gradient Boosting | 0.966 | 0.640 | 0.770 | 0.030 | 0.624 |
 | NSL-KDD | Decision Tree | 0.964 | 0.631 | 0.763 | 0.031 | 0.615 |
@@ -130,25 +130,29 @@ If you would rather skip Kaggle, place `DS2OS.csv` under `data/raw/ds2os/` and `
 
 ### Table 5: seen versus novel attacks on NSL-KDD
 
+The random split is a stratified 70/30 split of KDDTrain+. G is computed from unrounded accuracies.
+
 | Model | Accuracy, random split | Accuracy, KDDTest+ | Gap G |
 |---|---|---|---|
-| Random Forest | 0.996 | 0.773 | 0.223 |
-| Decision Tree | 0.994 | 0.772 | 0.222 |
-| KNN | 0.990 | 0.768 | 0.222 |
-| Gradient Boosting | 0.993 | 0.782 | 0.211 |
-| LightGBM | 0.995 | 0.803 | 0.192 |
-| XGBoost | 0.996 | 0.808 | 0.188 |
+| KNN | 0.996 | 0.768 | 0.228 |
+| Random Forest | 0.999 | 0.772 | 0.227 |
+| Decision Tree | 0.998 | 0.777 | 0.221 |
+| Gradient Boosting | 0.999 | 0.782 | 0.216 |
+| LightGBM | 0.999 | 0.803 | 0.196 |
+| XGBoost | 0.999 | 0.805 | 0.194 |
 
 ## Reading the results
 
 - Weighted scores hide the attack class on DS2OS. Tree models reach 0.97 weighted F1 but only 0.43 attack precision, so more than half of their alerts are false alarms.
 - KNN flips that failure. Its precision is near perfect while it misses more than one attack in four.
-- With all twelve DS2OS columns, XGBoost scores 0.99995 accuracy. The timestamp column alone predicts the label almost perfectly, which is why the leakage-aware pipeline removes it.
-- On NSL-KDD every model loses 19 to 22 accuracy points when the test set contains attack types absent from training.
+- With all twelve DS2OS columns, XGBoost scores 0.99996 accuracy. The timestamp column alone predicts the label almost perfectly, which is why the leakage-aware pipeline removes it.
+- On NSL-KDD every model loses 19 to 23 accuracy points when the test set contains attack types absent from training.
 
 ## Notes on reproducing the numbers
 
-Table 2 and Table 3 come from the original Google Colab run. Training times depend on hardware, so compare them between models rather than against other studies. Library updates can move a metric in the third decimal place; `results/environment_*.json` records the versions behind each run.
+Every value in the paper comes from one run of these scripts on Google Colab with two virtual CPUs, Python 3.13.16, scikit-learn 1.6.1, XGBoost 3.4.1, LightGBM 4.6.0 and imbalanced-learn 0.14.2. The outputs of that run are committed in `results/`, and `requirements.txt` pins the same machine learning libraries.
+
+Training times depend on hardware, so compare them between models rather than against other studies. Other library versions can shift individual values slightly.
 
 ## Citation
 

@@ -1,0 +1,57 @@
+{
+  "ds2os": {
+    "rows": 357952,
+    "raw_features": 12,
+    "features_after_removal": 5,
+    "feature_names": [
+      "sourceType",
+      "sourceLocation",
+      "destinationServiceAddress",
+      "destinationServiceType",
+      "destinationLocation"
+    ],
+    "attack_types": [
+      "anomalous(DoSattack)",
+      "anomalous(dataProbing)",
+      "anomalous(malitiousControl)",
+      "anomalous(malitiousOperation)",
+      "anomalous(scan)",
+      "anomalous(spying)",
+      "anomalous(wrongSetUp)"
+    ],
+    "normal": 347935,
+    "attack": 10017,
+    "train_after_smote": 487108,
+    "smote_synthetic_samples": 236542,
+    "test_normal": 104381,
+    "test_attack": 3005
+  },
+  "nsl_kdd": {
+    "train_rows": 125973,
+    "test_rows": 22544,
+    "features": 41,
+    "train_normal": 67343,
+    "train_attack": 58630,
+    "test_normal": 9711,
+    "test_attack": 12833,
+    "attack_types_only_in_test": [
+      "apache2",
+      "httptunnel",
+      "mailbomb",
+      "mscan",
+      "named",
+      "processtable",
+      "ps",
+      "saint",
+      "sendmail",
+      "snmpgetattack",
+      "snmpguess",
+      "sqlattack",
+      "udpstorm",
+      "worm",
+      "xlock",
+      "xsnoop",
+      "xterm"
+    ]
+  }
+}

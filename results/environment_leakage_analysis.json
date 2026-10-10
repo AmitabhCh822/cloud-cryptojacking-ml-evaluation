@@ -1,0 +1,14 @@
+{
+  "script": "leakage_analysis",
+  "python": "3.13.16",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "cpu_count": 2,
+  "numpy": "2.1.3",
+  "pandas": "2.2.3",
+  "scikit-learn": "1.6.1",
+  "xgboost": "3.4.1",
+  "lightgbm": "4.6.0",
+  "imbalanced-learn": "0.14.2",
+  "matplotlib": "3.10.0"
+}
