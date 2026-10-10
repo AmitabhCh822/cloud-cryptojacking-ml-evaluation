@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper listed under preferred-citation."
+title: "Code for Empirical Evaluation of Machine Learning for Cloud Cryptojacking Detection"
+type: software
+authors:
+  - family-names: Chakravorty
+    given-names: Amitabh
+    affiliation: "School of Information Technology, University of Cincinnati"
+    email: chakraa4@mail.uc.edu
+  - family-names: Elsayed
+    given-names: Nelly
+    affiliation: "School of Information Technology, University of Cincinnati"
+    email: elsayeny@ucmail.uc.edu
+repository-code: "https://github.com/AmitabhCh822/cloud-cryptojacking-ml-evaluation"
+license: MIT
+version: 1.0.0
+keywords:
+  - cryptojacking
+  - cloud security
+  - machine learning
+  - intrusion detection
+  - feature leakage
+preferred-citation:
+  type: conference-paper
+  title: "Empirical Evaluation of Machine Learning for Cloud Cryptojacking Detection: Effects of Preprocessing and Evaluation Protocols"
+  authors:
+    - family-names: Chakravorty
+      given-names: Amitabh
+    - family-names: Elsayed
+      given-names: Nelly
+  year: 2026
+  status: submitted
